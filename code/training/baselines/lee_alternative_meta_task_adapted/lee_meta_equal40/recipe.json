@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "candidate_version": "0.3.1",
+  "method_id": "lee_alternative_meta_task_adapted",
+  "claim": "paper_guided_equal_budget_task_adaptation_not_exact_author_dataset_reproduction",
+  "paper_sha256": "8521e13f8693ee73fe6e8c15f650e78c0225c3ece4e89074647f2f812d12a6e1",
+  "source_complete_pages": 5,
+  "author_code_available": false,
+  "author_algorithm_confirmed": true,
+  "original_complete_training_recipe_disclosed": false,
+  "server_release_qualified": false,
+  "gpu_probe_started": false,
+  "training_started": false,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs_total": 40,
+  "meta_epochs": 1,
+  "joint_online_epochs": 39,
+  "fresh_received_frames_per_global_epoch": 12000,
+  "fresh_received_frames_per_seed": 480000,
+  "global_data_epochs": [
+    1,
+    40
+  ],
+  "extra_pretraining_or_support_frames": 0,
+  "geometry": {
+    "users": 2,
+    "receive_antennas": 8,
+    "subcarriers": 128,
+    "ofdm_symbols": 25,
+    "fft_size": 1024
+  },
+  "architecture": "SFT(LSInterp)+IFFT(ADD(FFT(LSInterp)))",
+  "offline_meta_branch": "ADD_only",
+  "online_updated_branches": [
+    "SFT",
+    "ADD"
+  ],
+  "meta_algorithm": "canonical_second_order_MAML_one_inner_gradient_step",
+  "meta_tasks_per_outer_update": 1,
+  "meta_episode_frames": 32,
+  "support_frames_per_episode": 16,
+  "query_frames_per_episode": 16,
+  "meta_task_partition": "stable_sort_existing_batch_max_doppler_hz_lower16_support_upper16_query",
+  "homogeneous_episode_allowed_but_shift_not_claimed": true,
+  "support_query_metadata_enters_model": false,
+  "meta_support_frames_per_epoch": 6000,
+  "meta_query_frames_per_epoch": 6000,
+  "updates_per_epoch": 375,
+  "inner_optimizer": "one_explicit_gradient_descent_step",
+  "inner_alpha": 0.001,
+  "outer_optimizer": "explicit_gradient_descent_as_Algorithm1",
+  "outer_beta": 0.001,
+  "online_optimizer": "Adam",
+  "online_lr": 0.001,
+  "online_adam_betas": [
+    0.9,
+    0.999
+  ],
+  "online_adam_eps": 1e-08,
+  "weight_decay": 0,
+  "scheduler": "none_constant_lr",
+  "precision": "FP32",
+  "loss": "mean_complex_squared_error_full_25_symbol_CFR",
+  "validation": {
+    "frames": 2000,
+    "cache_sha256": "83d0e03524628b617671c42a73d3c458cc3395c31965a4e22295e8389f56e597",
+    "selection": "earliest_minimum_common_data_CSI_val_mse_within_online_phase",
+    "optimizer_access": false
+  },
+  "fsrcnn": {
+    "d": 56,
+    "s": 12,
+    "m": 4,
+    "widths_source": "Lee_cited_Mane2020_section2.4_not_disclosed_Lee_author_widths",
+    "feature_kernel": 5,
+    "shrink_kernel": 1,
+    "mapping_kernel": 3,
+    "expand_kernel": 1,
+    "reconstruct_kernel": 9,
+    "stride": 1,
+    "hidden_activation": "ReLU",
+    "reconstruction_activation": "linear_explicit_complex_CFR_adaptation",
+    "shared_per_user_weights": true
+  },
+  "fft": {
+    "axes": [
+      "time",
+      "receive_antenna",
+      "occupied_subcarrier"
+    ],
+    "norm": "backward"
+  },
+  "test_adaptation_steps": 0,
+  "test_labels_used_for_training": false,
+  "training_early_stop": false,
+  "deadline_utc": "2026-10-02T13:46:32.725968Z",
+  "deadline_action": "preserve_last_committed_full_state_incomplete_exit75",
+  "candidate_pending": [
+    "server_runtime_and_double_backward_qualification",
+    "frozen_scoring_report_delivery_checkers",
+    "three_seed_natural40_training",
+    "actual_latency_and_uniform_local_delivery"
+  ],
+  "parent_core_manifest_signature": "38e62b888847df952326cca50317f6e9337d5d3bb4cfff0be04c7d9a097c0399",
+  "activation_checkpoint": "explicit_parameter_loss_nonreentrant_preserve_rng",
+  "supported_gradient_microbatch_frames": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "checkpoint_protocol": "immutable_contiguous_full_epoch_commits_v1",
+  "release_scope": "training_only_pending_scoring_and_final_delivery",
+  "parent_training_manifest_signature": "94e5bc72af1222e3f8e26f95179d5f49899ca3080c524fa3884e28a696437ce9",
+  "resource_policy": {
+    "hardware_probe_Torch_limit_bytes": 6442450944,
+    "training_process_allocator_limit": "original_GPU_total_minus3GiB",
+    "actual_estimator_incremental_allocation_limit_bytes": 6442450944,
+    "original_generation_batch": 32,
+    "original_link_batch": 8,
+    "reason": "original_waveform_and_estimator_share_Torch_allocator_actual0.3.0_OOM_before_first_batch"
+  }
+}
