@@ -1,0 +1,66 @@
+{
+  "schema": "release_original_pytorch_gate_smoke_v1",
+  "status": "COMPLETE_SMOKE_8_PAIRS_NOT_FULL_TABLE5",
+  "models": [
+    "dopnet_seed42"
+  ],
+  "batches": [
+    "batch_0000.npz"
+  ],
+  "model_observation_pairs": 8,
+  "unique_physical_frames": 4,
+  "unique_user_observations": 8,
+  "runtime": {
+    "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.2.6",
+    "device": "cpu",
+    "threads": 2,
+    "cuda_visible_devices": "-1"
+  },
+  "batch_timings": [
+    {
+      "model": "dopnet_seed42",
+      "batch": "batch_0000.npz",
+      "seconds": 8.251770100032445
+    }
+  ],
+  "input_manifest_sha256": "f1503e8a3b16a91c1dc992d541c4ec4e782e9615302ef13d7119a3a8f595e5c6",
+  "training_executed": false,
+  "full_384_pair_inference_executed_during_release_organization": false,
+  "saved_384_pair_matrix_and_15_table_cells_verified_with_standard_library": true,
+  "new_entry_reads_original_frozen_sources_weights_and_npz": true,
+  "new_entry_does_not_import_numpy_model_or_unrestricted_pickle": true,
+  "covered_forward_modes": [
+    "normal",
+    "force_beta_1_retaining_offset_and_downstream_gate"
+  ],
+  "limitations": [
+    "One static calibration batch only; no dynamic/other seeds/CFR-derived coverage in this new-entry smoke.",
+    "Existing accepted 384-pair results are verified and preserved, not newly recomputed by this smoke.",
+    "No training, full test-grid replay, GPU/BF16 or figure regeneration performed."
+  ],
+  "comparison_to_original_saved_eight_records": {
+    "schema": "release_gate_smoke_frozen_record_comparison_v1",
+    "status": "PASS_8_PAIRS_MATCH_SAVED_DIAGNOSTICS",
+    "pairs": 8,
+    "metric_max_absolute_difference": {
+      "nmse_out": 0.0,
+      "nmse_beta1": 0.0,
+      "nmse_coarse": 0.0,
+      "nmse_phys": 0.0,
+      "nmse_aft": 0.0,
+      "beta_mean": 0.0,
+      "beta_wmean": 0.0,
+      "beta_gt09": 0.0,
+      "beta_lt01": 0.0,
+      "add_share": 0.0,
+      "gamma_mean": 0.0,
+      "gamma_dmean": 0.0
+    },
+    "normal_nmse_max_db_difference": 0.0,
+    "beta1_nmse_max_db_difference": 0.0,
+    "limits": "Only one model/static batch; no other seeds, models, dynamic batches, full test grid, GPU or training covered."
+  },
+  "public_candidate_scope": "Historical original-adapter smoke only. Its input_manifest_sha256 identifies the pre-projection manifest, not the public gate_inputs.json. No new public-candidate inference or training is claimed."
+}

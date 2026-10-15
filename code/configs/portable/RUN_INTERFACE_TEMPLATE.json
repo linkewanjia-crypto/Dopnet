@@ -1,0 +1,27 @@
+{
+  "schema": "dopnet-lee-research-candidate-interface-v1",
+  "status": "TEMPLATE_REQUIRES_EXPLICIT_OPERATOR_INPUTS",
+  "namespace": "dopnet_lee_research_candidate",
+  "science_configs": ["lee_seed42.json", "lee_seed43.json", "lee_seed44.json"],
+  "required_prepare_inputs": ["project", "verification_root", "configs_dir", "validation_cache", "reference_results", "output"],
+  "required_train_inputs": ["project", "verification_root", "manifest", "checkpoint_reader", "seed", "output"],
+  "required_evaluate_inputs": ["project", "verification_root", "manifest", "checkpoint_reader", "training_output", "reference_results", "parent_archive", "output"],
+  "required_new_authorization": ["acknowledge_new_run", "authorization_text"],
+  "authorization_time_source": "Actual UTC time recorded at new policy initialization; no template authorization text or historical authorization is supplied.",
+  "training_resources": {
+    "single_visible_cuda_gpu": true,
+    "minimum_total_gpu_memory_mib": 47000,
+    "minimum_free_gpu_memory_mib": 38400,
+    "require_no_other_compute_processes": true,
+    "torch_process_reserve_bytes": 3221225472,
+    "incremental_estimator_budget_bytes": 6442450944,
+    "cpu_threads": 1,
+    "minimum_free_host_memory_bytes": 1073741824,
+    "minimum_free_output_disk_bytes": 1073741824
+  },
+  "prepare_cuda_query_required": false,
+  "stop_policy": "Project STOP, run-output STOP or explicit stop_file stops work at policy checkpoints.",
+  "deadline_policy": "Optional new caller-provided aware UTC deadline; no legacy deadline is copied.",
+  "historical_receipts_are_new_authorization": false,
+  "executed_or_runtime_validated": false
+}
