@@ -1,0 +1,124 @@
+{
+  "schema": "dopnet_budget_matched_plan_v1",
+  "recipe": "fortitran_source_guided_equal_budget_v1",
+  "claim": "source_guided_equal_budget",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "paper_settings": {
+    "optimizer": "adam",
+    "loss": "real_imag_concatenated_mse",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "batch_size": 512,
+    "lr": 0.001,
+    "lr_decay_per_epoch": 0.995,
+    "max_epochs": 1000,
+    "early_stopping": true,
+    "training_frames": 100000,
+    "validation_frames": 10000,
+    "early_stopping_patience_in_paper": null
+  },
+  "sources": {
+    "paper": "https://arxiv.org/html/2505.09076v1",
+    "official_repository": "https://github.com/BerkIGuler/AdaFortiTran",
+    "official_trainer": "https://raw.githubusercontent.com/BerkIGuler/AdaFortiTran/master/src/main/trainer.py",
+    "official_patience_default": "https://raw.githubusercontent.com/BerkIGuler/AdaFortiTran/master/src/main/parser.py",
+    "official_early_stopping": "https://raw.githubusercontent.com/BerkIGuler/AdaFortiTran/master/src/utils.py",
+    "license": "MIT (official repository; no third-party implementation is vendored here)"
+  },
+  "reference_experiment_signature": "2c0a3889b6205199e3cbf814105a5b35413d7994e0baa9da45d989178806b07d",
+  "reference_evaluation_signature": "c8292e2ffc7a0ec72e1df4cd9426b3106d5b5cf06505a5f85aaf99426cb503f3",
+  "reference_runtime_code_sha256": "0af0222908c8e1bd8543e29a2a78f8dc53ede503750464e22445f773d56cb181",
+  "source_files_sha256": {
+    "audit_observation_operator.py": "5150663f1215a7f1fd61b8d0621dd177e018d9e0bb9aa8bd21d5b52751e3bec9",
+    "data/__init__.py": "b325e167182f60503d7a1aa6c13d3f0c48883fb1afafd46412e1519dc4bdf604",
+    "data/add_geometry.py": "6e5f3f7adf6e6ac32ddc4f070da9466973ae095127be72f7e732cdd57442088e",
+    "data/channel_backend.py": "86c9ea5d8ca7ec83d17ab3bcd93d7e51160756b98f15895b49f88c1800a9f492",
+    "data/channels.py": "bc805c8d200444efd73746316a2226e74a94c6785ea3622ce704723ef1de9d61",
+    "data/frame_feasibility.py": "0c4a1976df073b47c81794b76d938a941265422a54d794cb3d23cf021871d62e",
+    "data/frame_layout.py": "68c2dca70ffc1e9438cde98ed47177c5c7de52f9e44c447f0537423b6f4e7799",
+    "data/generator.py": "8ba683c9db5ff24c878d858687854bf0cfa2bc22971563c137f5c21fba20a757",
+    "data/threegpp_profiles.py": "e902bb27853561132764743f54692049d6a6d3b3ddc976034441d81996263c11",
+    "data/waveform.py": "e46feadb263cb181b5da3e130c3eaac43316bd3e3da2084063e5eb3a07250c3e",
+    "epoch_cache.py": "43016848ff34133ae12a2b2d71524358136e3970859d17c22cad3e9df4c36af9",
+    "evaluate.py": "4d9437445e2fc59797bf6a37b183e80a5702764c5a67b50c335a36181f301997",
+    "experiment_protocol.py": "d9aee90cb7332e2ca1a186cbbaac6dc8aab843a5800325ad24a87e65f8d36825",
+    "fixed_validation.py": "884cffcc1883e0f480fb676ca8315cafd76e4ea47b43180049ae40145ae11441",
+    "historical_reuse.py": "029aa16461357994ee2e4a0e0ef35a1c3280403c824bc36836b52f2f8f9e7a51",
+    "models/__init__.py": "b6e3560457fc99cd5eda9ce3a38077f162a9fb4b49aacc453e5140fe8602c060",
+    "models/baselines.py": "5679d37f125edf8dc04b64f15394c1474d3ee4deecc8777edecd031b384aab96",
+    "models/dopnet.py": "3359f0d8200d6726daff3484d0fa8f8198316a1261371c559d83ecf61a2926ac",
+    "models/graph_attention.py": "e3f7347d34e676444a51a361b7a28c3ba302b64ebfb6e841eebf536bbf1f484b",
+    "models/pwb_linear.py": "5f6c455c7ecc40a2d355b06620f5fa93101b52205e6f841aa46d497beaa3108b",
+    "models/receiver.py": "5b54a6582216c34a50076a34d1bf7537df833cc4733e95ee700d19d021ad01ca",
+    "reference_replay.py": "1620136432c4830af9bfb797768287a38c63732d0cccb3a498bbb554eeff8b5d",
+    "round_robin.py": "f3324fd688cfec7c670b4f1ac1170120c8e3425072c2b4f69d142388cc6aed0d",
+    "run_experiments.py": "dce74b4da0a5cca165a3877232f2b8ac54ac369b12dd55b0527fca0658e3997a",
+    "train.py": "a6581e4f3c2aa1b04a19fe6dd28a3db09712aa0adcf764579a0c532f5d69e472",
+    "utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils/checkpoints.py": "d8bed4b6d76198a1620533f6d60e80957f9b24ba0c48eba63881d997c04dc673",
+    "utils/cuda_memory.py": "cce056daaeb8c667efa06d37ded3a9e1e9bba9734ea7e3b491ecd3f7ce9e4c0e",
+    "utils/metrics.py": "57d9ddb8fa8407ab782d672d56b1590f89c1baa7fce3921fdda8da170bd67488",
+    "utils/modem.py": "fb47e9467428cdc9afd1c37238d5deb358f35b849d482ed84c3d4cdb36aa477d",
+    "verify_historical_validation_reconstruction.py": "95c621e5a5108c3833adc557a1633482d3f708a0eddae6ec6223cf012bcdee9f"
+  },
+  "implementation_sha256": {
+    "recipe.py": "103d21c8ce6736aabd8b29a61c98164ed4ec8b17ca80028646e750ae91261b6e",
+    "prepare.py": "3fbe404ac23633af6ecab2ec2286f7fb9d4402d3c71144cd5ea33b29e51d0303",
+    "train_author.py": "a25a4798250d4feeef45fca7babdb191cf8f33180651b135935418acb7efa601",
+    "migrate_prefix.py": "74e7f775c878bbb364084ffda08ef39b2f84eb5b3e5a27472948c5f4bbde6452"
+  },
+  "validation_cache_sha256": "83d0e03524628b617671c42a73d3c458cc3395c31965a4e22295e8389f56e597",
+  "validation": {
+    "path": "__HISTORICAL_MACHINE_PATH_REDACTED__",
+    "sha256": "83d0e03524628b617671c42a73d3c458cc3395c31965a4e22295e8389f56e597",
+    "bytes": 4682930065,
+    "frames": 2000,
+    "generation_seed": 610000001,
+    "usage": "checkpoint_selection_only; never optimizer input"
+  },
+  "configs": {
+    "fortitran_budget_matched_seed42": {
+      "file": "configs/fortitran_budget_matched_seed42.yaml",
+      "sha256": "08e67a7f73360449b60d4ab82d8e656d5ae7220648a6c2c75ea3af7b048c8881",
+      "config_sha256": "9ca6806e988fa0b011af1541a596bc9e85cef191abebee8985c562ad99c9fa3b"
+    },
+    "fortitran_budget_matched_seed43": {
+      "file": "configs/fortitran_budget_matched_seed43.yaml",
+      "sha256": "fbefdf5278b2d9eeec3a7838cdb2a632054fad978d258c3c47fb0da22939e41b",
+      "config_sha256": "a6e1836fdb630354db601d6f0f7720c9decb9f632107d4f2ad80c130a6ad21b0"
+    },
+    "fortitran_budget_matched_seed44": {
+      "file": "configs/fortitran_budget_matched_seed44.yaml",
+      "sha256": "022c7027415348756c936bf46977a49215ca55a95c65f02449c46f8553cbb794",
+      "config_sha256": "87aa1d0c25acc5fa284102530293fa9f56ca93708a6d6692bcadeba84d32fe17"
+    }
+  },
+  "initialization": "independently seeded weights; authenticated same-trajectory prefix migration is separately attested",
+  "training_draws": "unchanged archived generator; seed+10001; 12000 new frames/epoch",
+  "test_data": "not consumed by this training engine",
+  "termination": "fixed_budget_40_epochs",
+  "max_epochs": 40,
+  "early_stopping_enabled": false,
+  "completion": "exactly40 committed epochs; deadline is incomplete, never successful completion",
+  "comparison_budget": {
+    "fresh_frames_per_epoch": 12000,
+    "epochs": 40,
+    "total_fresh_training_frames": 480000
+  },
+  "portability_notice": {
+    "status": "historical_sanitized_non_runnable",
+    "original_sha256": "ed7c9dbf46a5058299bc49e621fe60b4a4a421c5cc7f76c7fc5f3971b52eb2a7",
+    "machine_paths_redacted": true,
+    "old_signature_removed": true,
+    "authoritative_original_bytes_changed": false,
+    "fresh_prepare_required": true
+  }
+}
